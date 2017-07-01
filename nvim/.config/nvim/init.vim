@@ -29,10 +29,6 @@ if !exists("autocommands_loaded")
   autocmd BufWritePost *.go :GoBuild
 endif
 
-let g:tex_flavor = "latex"
-let g:Tex_ViewRule_pdf = 'zathura'
-let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
-
 let g:airline_theme='solarized'
 nmap <F8> :TagbarToggle<CR>
 
@@ -49,6 +45,15 @@ endf
 
 nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
+
+" vim latex
+let g:tex_flavor = "latex"
+let g:Tex_ViewRule_pdf = 'zathura'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -interaction=nonstopmode $*'
+
 
 
 " deoplete-go
@@ -68,3 +73,5 @@ let g:deoplete#sources#go#on_event = 1
 map <F7> :NERDTreeToggle<CR>
 
 set termguicolors
+
+
