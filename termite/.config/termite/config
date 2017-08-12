@@ -7,6 +7,7 @@ foreground_bold = #eee8d5
 #background = #002b36
 background = rgba(7, 54, 66, 0.84)
 cursor = #93a1a1
+scrollback_lines = 10000
 
 # if unset, will reverse foreground and background
 #highlight = #839496
