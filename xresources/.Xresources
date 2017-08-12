@@ -55,7 +55,3 @@
 *color7:                S_base2
 *color15:               S_base3
 
-rofi.color-window: S_base02, S_base02, S_base02
-rofi.color-normal: S_base02, S_violet, S_base02, S_yellow, S_base3
-
-
