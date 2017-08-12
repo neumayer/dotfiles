@@ -3,14 +3,11 @@
 ! ------------------------------------------------------------------------------
 
 ! General
-!rofi.font:               DejaVu Sans Mono 13
-rofi.font: Fixed 15
-!Product Sans 15
+rofi.font:               DejaVu Sans Mono 13
 rofi.fake-transparency:  false
 rofi.color-enabled:      true
 rofi.hide-scrollbar:     true
 rofi.opacity:            100
-
 
 ! Layout
 rofi.width:              38
