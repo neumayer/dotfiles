@@ -22,7 +22,7 @@ width = 100%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
@@ -40,13 +40,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=12;1
-font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-2 = siji:pixelsize=12;1
+font-0 = RobotoMono:style=Bold:pixelsize=16;1
+;font-0 = NimbusSans:style=Bold:pixelsize=16;1
+font-1 = FontAwesome:style=Regular:fixed:pixelsize=14;1
+font-2 = unifont:fontformat=truetype:size=18:antialias=false;0
+font-3 = "Wuncon Siji:pixelsize=38;1"
 
 modules-left = i3
 modules-center = mpd
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery0 battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -71,7 +73,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix=" "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -155,11 +157,11 @@ strip-wsnumbers = true
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = " "
+icon-stop = " "
+icon-play = " "
+icon-pause = " "
+icon-next = " "
 
 label-song-maxlen = 25
 label-song-ellipsis = true
@@ -189,7 +191,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color5:#222}
 label = %percentage%%
@@ -197,7 +199,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color13:#222}
 label = %percentage_used%%
@@ -213,16 +215,15 @@ label-connected = %essid%
 
 format-disconnected =
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = ${xrdb:color3:#55aa55}
@@ -246,7 +247,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color4:#222}
 
@@ -280,10 +281,37 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/battery0]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${xrdb:color6:#222}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
@@ -292,21 +320,20 @@ format-charging-underline = ${xrdb:color4:#222}
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
-
 
 [module/temperature]
 type = internal/temperature
@@ -322,9 +349,9 @@ label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = ""
+ramp-1 = ""
+ramp-2 = ""
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -332,7 +359,7 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = 
+label-open = " "
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
