@@ -11,7 +11,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-solarized8'
-Plug 'atelierbram/Base2Tone-vim'
 
 call plug#end()
 
@@ -53,8 +52,6 @@ let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -interaction=nonstopmode $*'
-
-
 
 " deoplete-go
 call deoplete#custom#set('go', 'matchers', ['matcher_full_fuzzy'])
