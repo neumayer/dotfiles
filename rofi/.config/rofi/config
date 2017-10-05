@@ -3,7 +3,7 @@
 ! ------------------------------------------------------------------------------
 
 ! General
-rofi.font:               DejaVu Sans Mono 13
+rofi.font:               Roboto Mono 26
 rofi.fake-transparency:  false
 rofi.color-enabled:      true
 rofi.hide-scrollbar:     true
