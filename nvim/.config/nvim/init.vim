@@ -19,14 +19,12 @@ colorscheme solarized8_dark
 
 " vim-go
 set autowrite
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
+map <C-n> :cc<CR>
 nnoremap <leader>a :cclose<CR>
-autocmd BufWritePre *.go :GoBuild
-if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  autocmd BufWritePost *.go :GoBuild
-endif
+autocmd BufWritePost *.go call go#cmd#Build(1)
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+
 
 let g:airline_theme='solarized'
 nmap <F8> :TagbarToggle<CR>
