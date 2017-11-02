@@ -5,7 +5,7 @@ Plug 'fatih/vim-go'
 Plug 'fatih/vim-hclfmt'
 Plug 'nsf/gocode'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -44,7 +44,7 @@ au FileType go nmap <F10> :GoTest -short<cr>
 
 " airline
 let g:airline_theme='solarized'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
@@ -108,10 +108,10 @@ let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const', 'package
 let g:deoplete#sources#go#pointer = 1
 let g:deoplete#sources#go#use_cache = 1
 let g:deoplete#sources#go#json_directory = $XDG_CACHE_HOME . '/deoplete/go/darwin_amd64'
-let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-let g:deoplete#sources#go#cgo = 1
+let g:deoplete#sources#go#cgo = 0
 let g:deoplete#sources#go#cgo#libclang_path = '/opt/llvm/lib/libclang.dylib'
 let g:deoplete#sources#go#on_event = 1
+let g:deoplete#enable_at_startup = 1
 
 map <F7> :NERDTreeToggle<CR>
 
