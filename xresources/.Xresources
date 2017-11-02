@@ -55,3 +55,11 @@
 *color7:                S_base2
 *color15:               S_base3
 
+
+Xft.dpi: 109
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

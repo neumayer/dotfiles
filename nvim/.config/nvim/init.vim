@@ -4,22 +4,27 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-hclfmt'
 Plug 'b4b4r07/vim-hcl'
-Plug 'nsf/gocode'
+Plug 'mdempsky/gocode'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
+"Plug 'zchee/deoplete-go', { 'do': 'make'}
+"Plug 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-solarized8'
 Plug 'w0rp/ale'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'tpope/vim-fugitive'
+Plug 'bronson/vim-trailing-whitespace'
 
 call plug#end()
 
-syntax enable
-colorscheme solarized8_dark
+syntax on
+let g:dracula_colorterm = 0
+colorscheme solarized8
+"set background=dark
 
 " vim-go
 set autowrite
@@ -48,6 +53,7 @@ let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 0
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
+let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 
 nmap <F8> :TagbarToggle<CR>
@@ -116,6 +122,8 @@ let g:deoplete#enable_at_startup = 1
 
 map <F7> :NERDTreeToggle<CR>
 
-set termguicolors
+set list
+set listchars=tab:>-
 
+hi Normal guibg=NONE ctermbg=NONE
 
