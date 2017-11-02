@@ -11,6 +11,9 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-solarized8'
+Plug 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -23,11 +26,57 @@ map <C-n> :cc<CR>
 nnoremap <leader>a :cclose<CR>
 autocmd BufWritePost *.go call go#cmd#Build(1)
 let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
+au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
+au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
+au FileType go nmap <F9> :GoCoverageToggle -short<cr>
+au FileType go nmap <F10> :GoTest -short<cr>
 
-
+" airline
 let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+	\ }
 
 " solarized
 nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
@@ -39,7 +88,6 @@ fun! Solarized8Contrast(delta)
   let l:schemes = map(['_low', '_flat', '', '_high'], '"solarized8_".(&background).v:val')
   exe 'colors' l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
 endf
-
 nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
 nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
