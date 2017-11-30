@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-hclfmt'
+Plug 'b4b4r07/vim-hcl'
 Plug 'nsf/gocode'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
