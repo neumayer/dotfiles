@@ -101,9 +101,9 @@ let g:Tex_MultipleCompileFormats='dvi,pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -interaction=nonstopmode $*'
 
 " deoplete-go
-call deoplete#custom#set('go', 'matchers', ['matcher_full_fuzzy'])
-call deoplete#custom#set('go', 'sorters', [])
-call deoplete#custom#set('go', 'disabled_syntaxes', ['Comment'])
+call deoplete#custom#source('go', 'matchers', ['matcher_full_fuzzy'])
+call deoplete#custom#source('go', 'sorters', [])
+call deoplete#custom#source('go', 'disabled_syntaxes', ['Comment'])
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const', 'package']
 let g:deoplete#sources#go#pointer = 1
