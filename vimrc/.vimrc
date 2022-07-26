@@ -6,6 +6,7 @@ Plug 'fatih/vim-go'
 Plug 'preservim/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'itspriddle/vim-shellcheck'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 let g:fakeclip_provide_clipboard_key_mappings = !empty($WAYLAND_DISPLAY)
@@ -31,3 +32,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
